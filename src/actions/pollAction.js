@@ -1,6 +1,6 @@
 // import axios from 'axios';
-import SimpleStorageContract from '../../build/contracts/SimpleStorage.json';
-import getWeb3 from '../utils/getWeb3';
+// import SimpleStorageContract from '../../build/contracts/SimpleStorage.json';
+// import getWeb3 from '../utils/getWeb3';
 
 export function test() {
     return function (dispatch) {

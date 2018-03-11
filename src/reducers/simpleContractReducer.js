@@ -1,8 +1,8 @@
-export function pollReducer(state = {}, action) {
+export function simpleContract(state = {}, action) {
     switch (action.type) {
-        case "TEST_POLL":
+        case "UPDATE_SC":
             return { ...state,
-                test: action.payload
+                value: action.payload
             }
             break;
         default:

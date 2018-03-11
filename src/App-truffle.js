@@ -22,17 +22,17 @@ class App extends Component {
     // See utils/getWeb3 for more info.
 
     getWeb3
-    .then(results => {
-      this.setState({
-        web3: results.web3
-      })
+      .then(results => {
+        this.setState({
+          web3: results.web3
+        })
 
-      // Instantiate contract once web3 provided.
-      this.instantiateContract()
-    })
-    .catch(() => {
-      console.log('Error finding web3.')
-    })
+        // Instantiate contract once web3 provided.
+        this.instantiateContract()
+      })
+      .catch(() => {
+        console.log('Error finding web3.')
+      })
   }
 
   instantiateContract() {
@@ -58,7 +58,7 @@ class App extends Component {
         simpleStorageInstance = instance
         console.log('deployed')
         // Stores a given value, 5 by default.
-        return simpleStorageInstance.set(15, {from: accounts[0]})
+        return simpleStorageInstance.set(15, { from: accounts[0] })
       }).then((result) => {
         // Get the value from the contract to prove it worked.
         console.log(result)
@@ -76,7 +76,7 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal">
-            <a href="#" className="pure-menu-heading pure-menu-link">Truffle Box</a>
+          <a href="#" className="pure-menu-heading pure-menu-link">Truffle Box</a>
         </nav>
 
         <main className="container">

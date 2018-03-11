@@ -10,6 +10,8 @@ import About from './pages/About';
 import PollBoard from './pages/PollBoard';
 
 import { test } from './actions/pollAction';
+import { initWeb3 } from './actions/web3Action';
+import { setValue } from './actions/simpleContractAction';
 
 class App extends Component {
 
@@ -23,6 +25,10 @@ class App extends Component {
         }
     }
 
+    componentWillMount() {
+        this.props.initWeb3()
+    }
+
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -34,7 +40,8 @@ class App extends Component {
     }
 
     createNewPoll = () => {
-        this.props.testt();
+        // this.props.testt();
+        this.props.setValue(this.props.web3.instance);
     }
 
     render() {
@@ -99,12 +106,16 @@ class App extends Component {
 
 function mapStateToProps(state) {
     return {
-        test: state.poll
+        test: state.poll,
+        web3: state.web3,
+        simpleContract: state.simpleContract
     }
 }
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        testt: test
+        testt: test,
+        initWeb3: initWeb3,
+        setValue: setValue
     }, dispatch)
 }
 
